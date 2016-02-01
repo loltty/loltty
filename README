@@ -1,0 +1,14 @@
+┌────────────────────────────────────────────────┐
+│ loltty – psychedelic effects for your terminal │
+└────────────────────────────────────────────────┘
+
+‣‣‣ ALPHA VERSION (rapid prototype), will be rewritten later!
+
+Run it like this:
+
+$ loltty command [options] [arguments]
+
+
+Notes to the developer:
+- drop ccc (redefine colour), initc (set colour to rgb value)
+- colors@, pairs@, setab@, setaf@, setb@, setf@
