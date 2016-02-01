@@ -40,11 +40,11 @@ So, for example…
 
 The proof-of-concept works just like cat(1), that is:
 
-$ lolcat [file ...]
+$ lolcat [-p spread] [file ...]
 
 It requires Unicode input, does not deal with combining characters,
 and the presence of ANSI codes in the input lets it choke exactly
-like lolcat does.
+like lolcat does. The spread must be an integer value (default: 8).
 
 ┌──────┐
 │ Who? │
