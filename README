@@ -1,13 +1,65 @@
-┌────────────────────────────────────────────────┐
-│ loltty – psychedelic effects for your terminal │
-└────────────────────────────────────────────────┘
+┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
+┃ loltty – psychedelic effects for your terminal ┃
+┗━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┛
 
 ‣‣‣ ALPHA VERSION (rapid prototype), will be rewritten later!
 
+┌───────┐
+│ What? │
+└───────┘
+
+Eventually:
+An interactive cowsay, figlet, lolcat, matrix, rev, and more… all rolled into one.
+
+Currently:
+A proof-of-concept non-interactive lolcat reimplementation.
+Soon to be more.
+
+┌──────┐
+│ Why? │
+└──────┘
+
+Because.
+
+┌──────┐
+│ How? │
+└──────┘
+
 Run it like this:
 
-$ loltty command [options] [arguments]
+$ loltty [command [options] [arguments]]
 
+So, for example…
+
+• spawn a new shell:
+  $ loltty
+
+• run a rather psychedelic vim:
+  $ loltty vim
+
+
+The proof-of-concept works just like cat(1), that is:
+
+$ lolcat [file ...]
+
+It requires Unicode input, does not deal with combining characters,
+and the presence of ANSI codes in the input lets it choke exactly
+like lolcat does.
+
+┌──────┐
+│ Who? │
+└──────┘
+
+Most ideas for the concept and the filters:
+Richard Hartmann <richih@debian.org>
+
+Implementation and concept of the code:
+mirabilos <m@mirbsd.org>
+
+
+┌─────────────┐
+│ Development │
+└─────────────┘
 
 Notes to the developer:
 - drop ccc (redefine colour), initc (set colour to rgb value)
