@@ -28,13 +28,28 @@ set -A col_b -- 18 4 1 9 28 56 91 128 166 200 227 246 254 251 237 213 181 145 10
 ncols=${#col_r[*]}
 
 usage() {
-	print -ru2 -- "Usage: $0 [-p spread] [file ...]"
+	print -ru2 -- "Usage: $0 [-F freq] [-p spread] [-S seed] [file ...]"
 	exit ${1:-1}
 }
 
+freq=-
+seed=0
 spread=8
-while getopts "p:" ch; do
+while getopts "F:p:S:" ch; do
 	case $ch {
+	(F)
+		case $OPTARG {
+		(+([0-9])?(.*(0)))
+			freq=$OPTARG
+			;;
+		(*([0-9]).+([0-9]))
+			freq=$OPTARG
+			;;
+		(*)
+			usage
+			;;
+		}
+		;;
 	(p)
 		case $OPTARG {
 		(+([0-9]))
@@ -48,6 +63,10 @@ while getopts "p:" ch; do
 			;;
 		}
 		;;
+	(S)
+		[[ $OPTARG = +([0-9]) ]] || usage
+		seed=$OPTARG
+		;;
 	(*)
 		usage
 		;;
@@ -55,7 +74,19 @@ while getopts "p:" ch; do
 done
 shift $((OPTIND - 1))
 
-typeset -U index=$RANDOM
+if [[ $freq != - ]]; then
+	# frequency changed
+	mydir=$(dirname "$0")
+	if [[ ! -s $mydir/gen/rgbs.sh ]]; then
+		print -ru2 E: gen/rgbs.sh missing, cannot change frequency
+		exit 1
+	fi
+	eval $(mksh "$mydir/gen/rgbs.sh" "$freq")
+	ncols=${#col_r[*]}
+fi
+
+typeset -U index
+(( index = seed ? seed : RANDOM ))
 
 set -U # assume UTF-8 input
 cat "$@" | while IFS= read -r line; do

@@ -23,6 +23,12 @@
 # scale and in both directions): 0..376 for freq=0.3
 
 freq=0.3
+quiet=0
+
+if [[ -n $1 ]]; then
+	freq=$1
+	quiet=1
+fi
 
 bc -l |&
 print -p scale=10
@@ -34,7 +40,7 @@ while (( ++i < 5000 )); do
 	read -p gs
 	print -p "s(($freq*$i)+4.18879020478639098461685784437267051226289253250014109463325945641)*127+128"
 	read -p bs
-	print "$i	$rs	$gs	$bs"
+	(( quiet )) || print "$i	$rs	$gs	$bs"
 	r=${rs%.*}
 	g=${gs%.*}
 	b=${bs%.*}
@@ -56,8 +62,8 @@ while (( ++i < 5000 )); do
 		b0=$b
 	fi
 done
-print \# $i
-print
+(( quiet )) || print \# $i
+(( quiet )) || print
 print -r -- $sr
 print -r -- $sg
 print -r -- $sb

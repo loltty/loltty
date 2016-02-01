@@ -40,11 +40,12 @@ So, for example…
 
 The proof-of-concept works just like cat(1), that is:
 
-$ lolcat [-p spread] [file ...]
+$ lolcat [-F freq] [-p spread] [-S seed] [file ...]
 
 It requires Unicode input, does not deal with combining characters,
 and the presence of ANSI codes in the input lets it choke exactly
 like lolcat does. The spread must be an integer value (default: 8).
+The frequency defaults to 0.3, and the seed is random if 0 is used.
 
 ┌──────┐
 │ Who? │
@@ -55,6 +56,9 @@ Richard Hartmann <richih@debian.org>
 
 Implementation and concept of the code:
 mirabilos <m@mirbsd.org>
+
+The original lolcat was written by:
+Moe <moe@busyloop.net>
 
 
 ┌─────────────┐
