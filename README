@@ -59,12 +59,3 @@ mirabilos <m@mirbsd.org>
 
 The original lolcat was written by:
 Moe <moe@busyloop.net>
-
-
-┌─────────────┐
-│ Development │
-└─────────────┘
-
-Notes to the developer:
-- drop ccc (redefine colour), initc (set colour to rgb value)
-- colors@, pairs@, setab@, setaf@, setb@, setf@
