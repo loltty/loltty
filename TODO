@@ -47,10 +47,16 @@ like https://www.mirbsd.org/man1/window does.
 
 Ideas for filters:
 • 1ch border with title
-• cowsay border
+• cowsay border (optionally animated: the cow can walk)
 • lolcat, static colours
 • lolcat, animated colours
 • matrix (bold chars fall down, change char code at that)
 • reverse/flip content, colours, …
 • render text on parent fb using figlet/toilet
+• background image (e.g. with libcaca)
+• transparency (empty cells let background shine through)
+  ‣ especially useful with multiple windows
+  ‣ what shines through is reduced in colour
+• “arrange” plugin, arrange multiple clients/windows
+• widgets (like a clock) that are not really client processes
 • etc…
