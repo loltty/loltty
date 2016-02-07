@@ -14,4 +14,26 @@ Notes to the developer:
   intensive, underline, reverse), plus one for colours (type r g b)?
   probably, since fb must represent outer tty not inner pty
 - redrawing: all vs changed? (another array? ugh…); scrolling…
-- child: SIGWINCH, possibly to the group (session leader?)
+
+Rough design plan:
+
+- a number of “filter”s, order and settings configurable at runtime,
+  set up a “filter chain” for the input; each can hook up several things:
+  • when a new char is to be inserted
+  • display offset +(x, y) and size -(x, y)
+  • timeout, for handlers (e.g. lolcolours animation)
+- have a child process (group, session leader?) on a pty/tty pair
+- get input from it in a select loop (with timeout)
+  ‣ also listen on own tty, forward keypresses
+  ‣ on timeout call the various handlers from the hooks, in order
+  ‣ handle SIGWINCH, pass (reduced) tty size to child (and signal it)
+- parse input for escape sequence OR input char
+  ‣ escape sequence modifies state (current location and attributes)
+  ‣ pass input char, together with state info, to filter chain
+  ‣ … then write to framebuffer and “dirty” affected chars
+- redraw dirty content (clear screen redraws all)
+  • somehow handle framing from filters (like cowsay bordure)
+- we need to tell child about own capabilities (termcap, terminfo)
+
+Let’s begin with a nonlol-tty: fixed 1char border, fixed “chain”,
+no fancy processing, initially not even window size or terminfo.
