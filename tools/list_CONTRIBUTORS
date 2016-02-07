@@ -5,6 +5,7 @@
 # For details, see LICENSE. To submit patches, you have to agree to
 # license your code under the GNU GPL version 2 or later.
 
+export LC_ALL=C.UTF-8
 
 echo 'Alphabetical list of surnames of everyone who ever committed to this repository.
 Auto-generated from tools/list_CONTRIBUTORS.
