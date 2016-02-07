@@ -1,0 +1,17 @@
+┌─────────────┐
+│ Development │
+└─────────────┘
+
+Notes to the developer:
+- drop ccc (redefine colour), initc (set colour to rgb value)
+- colors@, pairs@, setab@, setaf@, setb@, setf@
+- last column on last line: write on second-to-last, then issue
+  \b\e[@ to move it right, then write the real value for that column
+  (use \b\b\e[2@ if its wcwidth() is 2); always issue an absolute⚠
+  positioning command after writing to the last column (in any line)
+- framebuffer: array[lines][cols] of union { pointer, inline} plus
+  array[lines][cols] of uint8_t attributes (haspointer, numinline,
+  intensive, underline, reverse), plus one for colours (type r g b)?
+  probably, since fb must represent outer tty not inner pty
+- redrawing: all vs changed? (another array? ugh…); scrolling…
+- child: SIGWINCH, possibly to the group (session leader?)
