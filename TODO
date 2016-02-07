@@ -37,3 +37,20 @@ Rough design plan:
 
 Let’s begin with a nonlol-tty: fixed 1char border, fixed “chain”,
 no fancy processing, initially not even window size or terminfo.
+
+Possibly: one framebuffer per filter, as only the “child” “filter”
+needs to do escape codes and “current state info” really. Allows
+for more flexibility in chain (they all handle only redraw (full
+or partial) and timeout) and the “what’s the char under my cursor?”
+functionality to work in children, plus eventually multiple children
+like https://www.mirbsd.org/man1/window does.
+
+Ideas for filters:
+• 1ch border with title
+• cowsay border
+• lolcat, static colours
+• lolcat, animated colours
+• matrix (bold chars fall down, change char code at that)
+• reverse/flip content, colours, …
+• render text on parent fb using figlet/toilet
+• etc…
