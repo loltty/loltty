@@ -19,6 +19,14 @@ Rough design plan:
 
 - a number of “filter”s, order and settings configurable at runtime,
   set up a “filter chain” for the input; each can hook up several things:
+  * filters should ideally be in a tree (or graph?), e.g. only apply part
+    of a filter chain to:
+    * a rectangle
+    * everything below the first bold line
+    * everything below the first red line
+    * everything to the second bold line
+    * the form of cowsay or arbitrary return regions of other filters, e.g.
+      cowsay, sl, etc
   • when a new char is to be inserted
   • display offset +(x, y) and size -(x, y)
   • timeout, for handlers (e.g. lolcolours animation)
