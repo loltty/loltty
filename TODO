@@ -68,3 +68,10 @@ Ideas for filters:
 • “arrange” plugin, arrange multiple clients/windows
 • widgets (like a clock) that are not really client processes
 • etc…
+
+Other effects (think 'messing with people using this machine'):
+* User detection
+* Date/time detection
+* Custom/random/random with offset timing for effects
+* SIGUSR1 to (re)load config
+* SIGUSR2 to become normal
