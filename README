@@ -27,7 +27,7 @@ Because.
 
 Run it like this:
 
-$ loltty [command [options] [arguments]]
+  $ loltty [command [options] [arguments]]
 
 So, for example…
 
