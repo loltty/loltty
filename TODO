@@ -58,7 +58,10 @@ Ideas for filters:
 • cowsay border (optionally animated: the cow can walk)
 • lolcat, static colours
 • lolcat, animated colours - think of it as a waterfall
-• matrix (bold chars fall down, optionally change char code at that)
+• matrix
+  * bold chars fall down
+  * optionally change char code at that
+  * generally, "the effect or effects" fall down
 • reverse/flip content, colours, …
 • render text on parent fb using figlet/toilet
 • background image (e.g. with libcaca)
