@@ -69,6 +69,8 @@ Ideas for filters:
   ‣ especially useful with multiple windows
   ‣ what shines through is reduced in colour
 • “arrange” plugin, arrange multiple clients/windows
+  * this could become a poor man's screen/tmux, but that's a tad
+    involved..
 • widgets (like a clock) that are not really client processes
 • etc…
 
