@@ -80,3 +80,5 @@ Other effects (think 'messing with people using this machine'):
 * Custom/random/random with offset timing for effects
 * SIGUSR1 to (re)load config
 * SIGUSR2 to become normal
+* Refusal to let someone log out (potentially more harmful than the
+  others)
